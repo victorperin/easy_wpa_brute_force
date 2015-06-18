@@ -5,10 +5,13 @@ var use_numbers = false;
 var use_simbols = false;
 var extra_caracters = []; //an array of characters or strings
 
-var min_pass_length = 1;
-var max_pass_length = 6;
+var use_password_library = true;
+var password_library_location = "passwords.txt"; // Use a text file with passwords separated by lines
 
-var test_pass = "senhaa";
+var min_pass_length = 1;
+var max_pass_length = 11;
+
+var test_pass = "password";
 //config
 
 
@@ -21,6 +24,15 @@ var simbols = ['!','@','#','$','%','¨','&','*','(',')','_','+','-','=','/',';',
 var found_pass = false;
 
 var using_caracters = [];
+
+
+var fs = require('fs');
+if(use_password_library){
+    var pass_array = fs.readFileSync(password_library_location).toString().split("\n");
+    using_caracters = using_caracters.concat(pass_array);
+    console.log("Loaded "+pass_array.length+" passwords from file library: "+password_library_location);
+}
+
 if(use_lowercase_caracters) using_caracters = using_caracters.concat(lowercase_caracters);
 if(use_uppercase_caracters) using_caracters = using_caracters.concat(uppercase_caracters);
 if(use_numbers) using_caracters = using_caracters.concat(numbers);
