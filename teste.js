@@ -5,7 +5,7 @@ var use_numbers = false;
 var use_simbols = false;
 var extra_caracters = []; //an array of characters or strings
 
-var use_password_library = true;
+var use_password_library = false;
 var password_library_location = "passwords.txt"; // Use a text file with passwords separated by lines
 
 var min_pass_length = 1;
